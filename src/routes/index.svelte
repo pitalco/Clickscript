@@ -1,5 +1,10 @@
 <script>
-	import Action from '../lib/Action.svelte'
+	import Action from '../components/Action.svelte'
+	import Popup from '../components/Popup.svelte'
+
+	function displayPopup() {
+		document.getElementById("popup").display = "block"
+	}
 </script>
 
 <svelte:head>
@@ -11,26 +16,34 @@
   <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </svelte:head>
 
-<div class="columns">
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-	<div class="column is-2">
-		<Action></Action>
-	</div>
-</div>
+<main>
+	<Popup />
+	<section>
+		<div class="columns">
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Function" description="A scraper function to scrape an HTML page provided."></Action>
+			</div>
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Endpoint" description="Return the scraped body as JSON on endpoint."></Action>
+			</div>
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Endpoint" description="A scraper function to scrape an HTML page provided."></Action>
+			</div>
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Task" description="Run an email to send the scraped data every other day."></Action>
+			</div>
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Script" description="Take the scraper functions and run them."></Action>
+			</div>
+			<div on:click={displayPopup} class="column is-2">
+				<Action type="Script" description="Take the scraper functions and run csv push."></Action>
+			</div>
+		</div>
+	</section>
+</main>
 
 <style>
+main {
+	padding: 20px;
+}
 </style>

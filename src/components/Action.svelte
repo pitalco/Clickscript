@@ -1,4 +1,6 @@
 <script>
+    export let type;
+    export let description;
 </script>
 
 <svelte:head>
@@ -15,10 +17,10 @@
         <div class="columns">
             <div class="column is-12">
                 <h2 class="content functionHeader">
-                    Function
+                    {type}
                 </h2>
                 <p class="content functionExplainer">
-                    Scrape url specified and then find element by id.
+                    {description}
                 </p>
             </div>
         </div>
