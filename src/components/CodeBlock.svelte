@@ -1,5 +1,5 @@
 <script>
-    import { goto } from '$app/navigation';
+    import { popup } from '../stores/popup';
 
     export let ext;
     export let fileName;
@@ -8,7 +8,7 @@
 	function displayPopup(event) {
 		document.getElementById("popup").style.display = "block";
 
-		console.log(event.target.getAttribute("action-id"));
+		popup.set(event.target.getAttribute("file-name"));
 	}
 </script>
 
@@ -21,14 +21,14 @@
   <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </svelte:head>
 
-<div on:click={e => goto("/" + actionId)} class="action" action-id={actionId}>
-    <div class="box mainBox" action-id={actionId}>
-        <div class="columns" action-id={actionId}>
-            <div class="column is-12" action-id={actionId}>
-                <h2 class="content functionHeader" action-id={actionId}>
+<div on:click={e => displayPopup(e)} class="action" action-id={actionId} file-name={fileName}>
+    <div class="box mainBox" action-id={actionId} file-name={fileName}>
+        <div class="columns" action-id={actionId} file-name={fileName}>
+            <div class="column is-12" action-id={actionId} file-name={fileName}>
+                <h2 class="content functionHeader" action-id={actionId} file-name={fileName}>
                     {ext}
                 </h2>
-                <p class="content functionExplainer" action-id={actionId}>
+                <p class="content functionExplainer" action-id={actionId} file-name={fileName}>
                     {fileName}
                 </p>
             </div>
@@ -37,6 +37,9 @@
 </div>
 
 <style>
+h2 {
+    margin-bottom: 0px;
+}
 .action {
     width: 100%;
 }
@@ -45,16 +48,22 @@
 }
 .mainBox {
     width: 100%;
-    height: 100%;
+    height: 125px;
     cursor: pointer;
     border-radius: 5px;
+    overflow: hidden;
+    padding: 0px;
+    padding-top: 10px;
 }
 .functionHeader {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
+    text-overflow: ellipsis;
 }
 .functionExplainer {
     font-size: 16px;
     text-align: center;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 </style>
