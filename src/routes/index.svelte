@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import Action from '../components/Action.svelte';
+	import AddFile from '../components/AddFile.svelte';
 	import Popup from '../components/Popup.svelte';
 	import { interactable } from "../interactable";
 	import { goto } from '$app/navigation';
@@ -16,27 +17,15 @@
 	});
 </script>
 
-<svelte:head>
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-  />
-  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</svelte:head>
-
 <main>
 	<Popup />
 	<section>
 		<div class="columns">
 			<div class="column is-2">
-				<Action ext="server" fileName="" actionId={"server"}></Action>
+				<Action ext="main" fileName="main.py" actionId="main_97g9g9"></Action>
 			</div>
-			<div class="column is-2">
-				<Action ext="main" fileName="main.clicks" actionId={"main.clicks"}></Action>
-			</div>
-			<div class="column is-2">
-				<Action ext="stock_data" fileName="stock_data.csv" actionId={"stock_data.csv"}></Action>
+			<div class="column is-2 icon-div">
+				<AddFile></AddFile>
 			</div>
 		</div>
 	</section>
@@ -46,4 +35,9 @@
 main {
 	padding: 20px;
 }
+.icon-div {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
 </style>

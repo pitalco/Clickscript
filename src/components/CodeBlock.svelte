@@ -1,5 +1,5 @@
 <script>
-    import { popup } from '../stores/popup';
+    import { title, content } from '../stores/popup';
 
     export let ext;
     export let fileName;
@@ -8,18 +8,9 @@
 	function displayPopup(event) {
 		document.getElementById("popup").style.display = "block";
 
-		popup.set(event.target.getAttribute("file-name"));
+		title.set(event.target.getAttribute("file-name"));
 	}
 </script>
-
-<svelte:head>
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-  />
-  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</svelte:head>
 
 <div on:click={e => displayPopup(e)} class="action" action-id={actionId} file-name={fileName}>
     <div class="box mainBox" action-id={actionId} file-name={fileName}>
