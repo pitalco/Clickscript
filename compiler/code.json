@@ -1,0 +1,54 @@
+{
+  "script": [
+    {
+      "order": 1,
+      "action": "var",
+      "args": [
+        {
+          "arg_name": "var_name",
+          "arg_value": "x",
+          "arg_type": "variable"
+        },
+        {
+          "arg_name": "var_value",
+          "arg_value": "turn me into bytes",
+          "arg_type": "bytes"
+        }
+      ],
+      "actions": []
+    },
+    {
+      "order": 2,
+      "action": "print",
+      "args": [
+        {
+          "arg_name": "print_val",
+          "arg_value": "Hello",
+          "arg_type": "string"
+        },
+        {
+          "arg_name": "print_val",
+          "arg_value": "world!",
+          "arg_type": "string"
+        },
+        {
+          "arg_name": "print_val",
+          "arg_value": "35.685465473578",
+          "arg_type": "number"
+        },
+        {
+          "arg_name": "print_val",
+          "arg_value": "turn into bytes",
+          "arg_type": "bytes"
+        },
+        {
+          "arg_name": "print_val",
+          "arg_value": "x",
+          "arg_type": "variable"
+        }
+      ],
+      "actions": []
+    }
+  ],
+  "file_name": "code.json"
+}
