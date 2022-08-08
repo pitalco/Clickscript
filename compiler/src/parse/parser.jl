@@ -9,7 +9,7 @@ end
 
 # ActionMapper maps all raw Action Dicts to Action type
 function ActionMapper(action::Dict)
-    return Action(action["order"], action["action"], ArgMapper.(action["args"]), action["actions"])
+    return Action(action["order"], action["action"], ArgMapper.(action["args"]), ActionMapper.(action["actions"]))
 end
 
 # ArgMapper maps all raw Arg Dicts to Arg type

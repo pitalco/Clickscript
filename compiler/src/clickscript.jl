@@ -13,4 +13,11 @@ function parse_commandline()
     return parse_args(s)
 end
 
-Runner()
+function main()
+    # set a memory store for all in memory variables
+    vars = Dict()
+    # run the code runner and parser
+    Runner(vars)
+end
+
+main()

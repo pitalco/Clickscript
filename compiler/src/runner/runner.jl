@@ -1,7 +1,7 @@
 include("../parse/parser.jl")
 include("../runner/handler.jl")
 
-function Runner()
+function Runner(vars::Dict)
     # parse the command line arguments (turns them into a Dict)
     parsed_args = parse_commandline()
     # parse the file provided via command line path
@@ -9,6 +9,6 @@ function Runner()
     # map all raw dicts to types for actions
     actions = ActionMapper.(raw_actions["script"])
     for action in actions
-        Handler(action)
+        Handler(action, vars)
     end
 end

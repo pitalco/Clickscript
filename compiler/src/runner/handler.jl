@@ -3,13 +3,20 @@
 
 include("../actions/print.jl")
 include("../actions/var.jl")
+include("../actions/function.jl")
 include("../types.jl")
 
-function Handler(action::Action)
+function Handler(action::Action, vars::Dict)
     if action.action === "print"
-        return ActionPrint(action)
+        return ActionPrint(action, vars)
     end
     if action.action === "var"
-        return ActionVar(action)
+        return ActionVar(action, vars)
+    end
+    if action.action === "define"
+        return ActionDefineFunction(action, vars)
+    end
+    if action.action === "run"
+        return ActionRunFunction(action, vars)
     end
 end
