@@ -6,8 +6,8 @@ Clickscript produces high grade, easy to follow code in various languages (start
 
 ## Roadmap
 - v0: Build and run Clickscript scripts using the Clickscript visual programming language
-- v1: Compile Clickscript scripts into Python and/or NodeJS
-- v2: Bring legacy .py and .js files into Clickscript so you can build right along legacy code
+- v1: Transpile Clickscript scripts into Python and/or NodeJS (add others in time)
+- v2: Import legacy .py and .js files into Clickscript objects so you can build right along legacy code
 
 ## Get Started
 
