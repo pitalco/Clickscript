@@ -4,6 +4,30 @@ Clickscript (currently a work in progress) is a new, general purpose, visual pro
 
 Clickscript produces high grade, easy to follow code in various languages (starting with Python then NodeJS) allowing developers to pick up right where no-coders left off and vice-versa.
 
-## Get started
+## Get Started
 
-Instructions on how to download and run locally will be coming soon once complete!
+### Dev
+```bash
+npm install
+
+npm run dev
+```
+
+### Build and Preview
+```bash
+npm build
+
+npm run preview
+```
+
+## Compiler CLI
+
+### Run Local Clickscript JSON File
+```julia
+julia ./src/clickscript.jl ./code.json
+```
+
+### CLI Helper
+```julia
+julia ./src/clickscript.jl --help
+```
