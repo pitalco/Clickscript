@@ -4,6 +4,7 @@
 include("../actions/print.jl")
 include("../actions/var.jl")
 include("../actions/function.jl")
+include("../actions/compare.jl")
 include("../types.jl")
 
 function Handler(action::Action, vars::Dict)
@@ -18,5 +19,8 @@ function Handler(action::Action, vars::Dict)
     end
     if action.action === "run"
         return ActionRunFunction(action, vars)
+    end
+    if action.action === "equal"
+        return ActionEqual(action, vars)
     end
 end

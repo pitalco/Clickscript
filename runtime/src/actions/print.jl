@@ -1,6 +1,8 @@
 include("../types.jl")
 
-function ActionPrint(action::Action, vars::Dict)
+# ActionPrint runs the action for runtime. Returns true if successful for testing
+# purposes. Throws exception if error
+function ActionPrint(action::Action, vars::Dict)::Bool
     print = ""
     for arg in action.args
         # convert value into value as type
@@ -8,5 +10,5 @@ function ActionPrint(action::Action, vars::Dict)
         print = print * " " * arg.valueastype
     end
     println(print)
-    return
+    return true
 end

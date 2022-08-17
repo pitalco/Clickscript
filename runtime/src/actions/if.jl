@@ -11,7 +11,7 @@ end
 
 macro ifelse(action::Action, vars::Dict)
     :(
-     if
+     if true
      else
      end
     )

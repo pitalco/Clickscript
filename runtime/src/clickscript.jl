@@ -1,23 +1,14 @@
-using ArgParse
 include("runner/runner.jl")
-
-function parse_commandline()
-    s = ArgParseSettings()
-
-    @add_arg_table s begin
-        "path"
-            help = "Parse and then run the Clickscript JSON file provided"
-            required = true
-    end
-
-    return parse_args(s)
-end
+include("cli.jl")
 
 function main()
+    # parse the command line arguments (turns them into a Dict)
+    parsed_args = parse_commandline()
+    path = parsed_args["path"]
     # set a memory store for all in memory variables
     vars = Dict()
     # run the code runner and parser
-    Runner(vars)
+    Runner(path, vars)
 end
 
 main()
