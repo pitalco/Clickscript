@@ -5,8 +5,12 @@ function ActionFor(action::Action, vars::Dict)
     list = filter(d -> d.name == "var_iterator", action.args)[1]
     # add the current iterator as an arg in the action.args
     for item in list
+        vars["for_iter_item"] = item
         # run through each nested action item as loop. Each item referenced must be var type
         # for proper lookup in the vars list
+        for act in action.actions
+            InternalHandler(act, vars)
+        end
     end
 end
 
@@ -19,5 +23,10 @@ function ActionWhile(action::Action, vars::Dict)
     while statement
         # run through each nested action item as loop. Each item referenced must be var type
         # for proper lookup in the vars list
+        for act in action.actions
+            InternalHandler(act, vars)
+        end
+        # rerun statement to be evaluated on while loop
+        statement::Bool = InternalHandler(action, vars)
     end
 end
