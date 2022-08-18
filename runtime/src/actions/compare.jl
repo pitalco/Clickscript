@@ -1,25 +1,49 @@
 include("../types.jl")
 
-function ActionEqual(x, y)
-    return x == y
+function ActionEqual(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype == y.valueastype
 end
 
-function ActionNEqual(x, y)
-    return x != y
+function ActionNEqual(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype != y.valueastype
 end
 
-function ActionGT(x, y)
-    return x > y
+function ActionGT(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype > y.valueastype
 end
 
-function ActionGTE(x, y)
-    return x >= y
+function ActionGTE(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype >= y.valueastype
 end
 
-function ActionLT(x, y)
-    return x < y
+function ActionLT(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype < y.valueastype
 end
 
-function ActionLTE(x, y)
-    return x <= y
+function ActionLTE(action::Action, vars::Dict)
+    x = action.args[1]
+    x = AsType(x, vars)
+    y = action.args[2]
+    y = AsType(y, vars)
+    return x.valueastype <= y.valueastype
 end

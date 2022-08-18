@@ -7,7 +7,7 @@ function ActionPrint(action::Action, vars::Dict)::Bool
     for arg in action.args
         # convert value into value as type
         arg = AsType(arg, vars)
-        print = print * " " * arg.valueastype
+        print = print * " " * arg.value
     end
     println(print)
     return true

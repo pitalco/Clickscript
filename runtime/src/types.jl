@@ -1,6 +1,6 @@
 mutable struct Arg
     name::String
-    value::Any
+    value::String
     type::String
     valueastype::Any
 end

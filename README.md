@@ -25,7 +25,7 @@ npm build
 npm run preview
 ```
 
-## Compiler CLI
+## Clickscript Runtime CLI
 
 ### Run Local Clickscript JSON File
 ```julia
