@@ -4,6 +4,7 @@ include("../src/actions/print.jl")
 include("../src/actions/var.jl")
 include("../src/actions/compare.jl")
 include("../src/actions/function.jl")
+include("../src/actions/loops.jl")
 
 ############# Variables For Testing #############
 
@@ -78,6 +79,8 @@ LTETestActionFalse = Action(1, "lte", [LTETestArg1False, LTETestArg2False], [])
     @test ActionVar(VarTestAction, Dict()) == true
     @test ActionDefineFunction(DefineTestAction, Dict()) == true
     @test ActionRunFunction(RunTestAction, Dict("x" => [PrintTestAction])) == true
+    @test ActionFor(ForTestAction, Dict()) == true
+    @test ActionWhile(ForTestAction, Dict()) == true
     @test ActionEqual(EqualTestActionTrue, Dict()) == true
     @test ActionEqual(EqualTestActionFalse, Dict()) == false
     @test ActionNEqual(NEqualTestActionTrue, Dict()) == true
