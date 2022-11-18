@@ -2,79 +2,47 @@
   "script": [
     {
       "order": 1,
-      "action": "define",
+      "action": "var",
       "args": [
         {
           "arg_name": "var_name",
-          "arg_value": "func_print",
-          "arg_type": "function"
-        }
-      ],
-      "actions": [
-        {
-          "order": 1,
-          "action": "var",
-          "args": [
-            {
-              "arg_name": "var_name",
-              "arg_value": "x",
-              "arg_type": "variable"
-            },
-            {
-              "arg_name": "var_value",
-              "arg_value": "I am a variable",
-              "arg_type": "bytes"
-            }
-          ],
-          "actions": [
-          ]
+          "arg_value": "x",
+          "arg_type": "variable"
         },
         {
-          "order": 2,
-          "action": "print",
-          "args": [
-            {
-              "arg_name": "print_val",
-              "arg_value": "Hello",
-              "arg_type": "string"
-            },
-            {
-              "arg_name": "print_val",
-              "arg_value": "world!",
-              "arg_type": "string"
-            },
-            {
-              "arg_name": "print_val",
-              "arg_value": "35.685465473578",
-              "arg_type": "number"
-            },
-            {
-              "arg_name": "print_val",
-              "arg_value": "turn into bytes.....",
-              "arg_type": "bytes"
-            },
-            {
-              "arg_name": "print_val",
-              "arg_value": "x",
-              "arg_type": "variable"
-            }
-          ],
-          "actions": []
-        }
-      ]
-    },
-    {
-      "order": 2,
-      "action": "run",
-      "args": [
-        {
-          "arg_name": "var_name",
-          "arg_value": "func_print",
-          "arg_type": "function"
+          "arg_name": "var_value",
+          "arg_value": "turn me into bytes",
+          "arg_type": "bytes"
         }
       ],
-      "actions": [
-      ]
+      "actions": []
+    },
+    {
+      "order": 3,
+      "action": "print",
+      "args": [
+        {
+          "arg_value": "Hello",
+          "arg_type": "string"
+        },
+        {
+          "arg_value": "world!",
+          "arg_type": "string"
+        },
+        {
+          "arg_value": "35.685465473578",
+          "arg_type": "number"
+        },
+        {
+          "arg_value": "turn into bytes",
+          "arg_type": "bytes"
+        },
+        {
+          "arg_value": "x",
+          "arg_type": "variable"
+        }
+      ],
+      "actions": []
     }
   ],
   "file_name": "code.json"
