@@ -13,8 +13,8 @@ Downloading info is coming soon once the MVP is complete!
 If we are going to live in an ever growing digital & automated world, everyone is going to need to participate in building it. With ~28M software developers but ~5B software users, there is a massive chance of large future unemployment and minimal innovation if more builders cannot join the current builders in tech. Our mission is grand, and there's a large chance of failure, but someone has to try it. :) 
 
 ## Roadmap
-- v0: Runtime and UI for building and running Clickscript files.
-- v1: Transpile Clickscript scripts into Python and/or NodeJS.
+- Alpha: Runtime and UI for building and running Clickscript files.
+- Beta: Transpile Clickscript scripts into Python and/or NodeJS.
 - Commercial Version: Import legacy .py and .js files into Clickscript
 - Beyond: Add support for more languages.
 
