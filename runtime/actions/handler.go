@@ -10,7 +10,7 @@ import (
 // and then returns that function. The function then can be used to run the code
 // within the runner. For each newly created Clickscript action, you must add that
 // action as a case in the switch statement for Clickscript to be able to use it.
-func GetFunction(ctx types.Context, functionName string) func(ctx types.Context, args []byte) (log string, err error) {
+func GetFunction(ctx types.Context, functionName string) func(ctx types.Context, args []byte) error {
 	switch functionName {
 	case types.PrintHandlerName:
 		return Print

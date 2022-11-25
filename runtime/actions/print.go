@@ -12,15 +12,15 @@ type PrintArgs struct {
 	Values []interface{} `json:"values"`
 }
 
-func Print(ctx types.Context, args []byte) (code string, err error) {
+func Print(ctx types.Context, args []byte) error {
 	var printArgs PrintArgs
 
-	err = json.Unmarshal(args, &printArgs)
+	err := json.Unmarshal(args, &printArgs)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Print(printArgs.Values...)
 
-	return code, nil
+	return nil
 }

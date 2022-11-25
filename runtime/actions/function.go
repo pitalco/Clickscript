@@ -29,10 +29,10 @@ type RunArgs struct {
 }
 
 // RunFunction runs a pre-defined function
-func RunFunction(ctx types.Context, args []byte) (logs string, err error) {
+func RunFunction(ctx types.Context, args []byte) error {
 	var runArgs RunArgs
 	// unmarshal the args for this action from bytes
-	err = json.Unmarshal(args, &runArgs)
+	err := json.Unmarshal(args, &runArgs)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,23 +46,23 @@ func RunFunction(ctx types.Context, args []byte) (logs string, err error) {
 	for _, a := range actions {
 		// get the function for this action from the handler
 		run := GetFunction(ctx, a.Action)
-		logs, err = run(ctx, a.Args)
+		err = run(ctx, a.Args)
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
-	return logs, nil
+	return nil
 }
 
 // CreateFunction takes a function and stores it in memory. Can be run with RunFunction ('run' action)
-func CreateFunction(ctx types.Context, args []byte) (logs string, err error) {
+func CreateFunction(ctx types.Context, args []byte) error {
 	var defArgs DefArgs
 	// unmarshal the args for this action from bytes
-	err = json.Unmarshal(args, &defArgs)
+	err := json.Unmarshal(args, &defArgs)
 	if err != nil {
 		log.Fatal(err)
 	}
 	// set the function in memory
 	ctx.Memory[defArgs.Name] = defArgs.Actions
-	return logs, nil
+	return nil
 }

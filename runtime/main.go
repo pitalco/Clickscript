@@ -39,13 +39,11 @@ func main() {
 				// get the function to run
 				run := actions.GetFunction(ctx, line.Action.Action)
 				// run the function
-				rawLog, err := run(ctx, line.Action.Args)
+				err := run(ctx, line.Action.Args)
 				if err != nil {
 					http.Error(w, err.Error(), http.StatusBadRequest)
 					return
 				}
-				// append the log from the individual action to the log file
-				log.Println(rawLog)
 			}
 		}
 	})
