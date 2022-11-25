@@ -1,26 +1,22 @@
 <script>
     import { title, content } from '../stores/popup';
 
-    export let ext;
-    export let fileName;
-    export let actionId;
+    export let action;
 
 	function displayPopup(event) {
 		document.getElementById("popup").style.display = "block";
 
-		title.set(event.target.getAttribute("file-name"));
+		title.set(event.target.getAttribute("desc"));
 	}
 </script>
 
-<div on:click={e => displayPopup(e)} class="action" action-id={actionId} file-name={fileName}>
-    <div class="box mainBox" action-id={actionId} file-name={fileName}>
-        <div class="columns" action-id={actionId} file-name={fileName}>
-            <div class="column is-12" action-id={actionId} file-name={fileName}>
-                <h2 class="content functionHeader" action-id={actionId} file-name={fileName}>
-                    {ext}
-                </h2>
-                <p class="content functionExplainer" action-id={actionId} file-name={fileName}>
-                    {fileName}
+<div on:click={e => displayPopup(e)} class="action" action-name={action.actionName} desc={action.desc}>
+    <div class="content padding"><p class="action-header">Action {action.actionNumber}</p></div>
+    <div class="box mainBox" action-name={action.actionName} desc={action.desc}>
+        <div class="columns" action-name={action.actionName} desc={action.desc}>
+            <div class="column is-12" action-name={action.actionName} desc={action.desc}>
+                <p class="content actionExplainer" action-name={action.actionName} desc={action.desc}>
+                    {action.desc}
                 </p>
             </div>
         </div>
@@ -28,8 +24,9 @@
 </div>
 
 <style>
-h2 {
-    margin-bottom: 0px;
+.action-header {
+    color: rgba(0, 0, 0, 0.40);
+    font-weight: 600;
 }
 .action {
     width: 100%;
@@ -38,22 +35,19 @@ h2 {
     margin-bottom: 0px;
 }
 .mainBox {
+    margin-top: 10px;
     width: 100%;
-    height: 125px;
+    min-width: 150px;
+    min-height: 80px;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 20%);
     overflow: hidden;
-    padding: 0px;
-    padding-top: 10px;
+    padding: 10px;
 }
-.functionHeader {
-    font-size: 22px;
-    text-align: center;
-    text-overflow: ellipsis;
-}
-.functionExplainer {
+.actionExplainer {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     text-overflow:ellipsis;
     overflow: hidden;
 }

@@ -14,36 +14,10 @@ If we are going to live in an ever growing digital & automated world, everyone i
 
 ## Roadmap
 - Alpha: Runtime and UI for building and running Clickscript files.
-- Beta: Transpile Clickscript scripts into Python and/or NodeJS.
+- Beta: Transpile Clickscript scripts into NodeJS.
+- v1: Transpile Clickscript scripts into Python.
 - Commercial Version: Import legacy .py and .js files into Clickscript
 - Beyond: 
     * Add support for more languages
     * Built in package manager
-
-## Get Started
-
-### Dev
-```bash
-npm install
-
-npm run dev
-```
-
-### Build and Preview
-```bash
-npm build
-
-npm run preview
-```
-
-## Clickscript Runtime CLI
-
-### Run Local Clickscript File
-```julia
-clicksd ./script.click
-```
-
-### CLI Helper
-```julia
-clicksd --help
-```
+    

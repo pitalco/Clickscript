@@ -32,10 +32,6 @@
   padding: 0px;
   padding-left: 15px;
 }
-.modal-card-title {
-  text-overflow: ellipsis;
-  max-width: 90%;
-}
 .modal {
     display: none;
     width: fit-content;

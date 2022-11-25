@@ -2,15 +2,13 @@ import { writable } from 'svelte/store';
 
 export const contents = writable([
     {
-        "type": "folder",
-        "fileName": "server",
-        "ext": null,
-        "contents": []
+        "actionName": "var",
+        "desc": "Set variable to 'name'",
+        "actionNumber" : 1,
     },
     {
-        "type": "file",
-        "fileName": "main",
-        "ext": "py",
-        "contents": []
+        "actionName": "print",
+        "desc": "Print out contents",
+        "actionNumber": 2,
     }
 ]);

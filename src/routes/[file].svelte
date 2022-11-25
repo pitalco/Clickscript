@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-    import { page } from '$app/stores';
 	import CodeBlock from '../components/CodeBlock.svelte';
 	import Popup from '../components/Popup.svelte';
 	import { interactable } from "../interactable";

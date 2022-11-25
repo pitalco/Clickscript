@@ -1,6 +1,5 @@
 <script>
     import { contents } from '../stores/project';
-    import AddFileDropdown from './AddFileDropdown.svelte';
 
     function addContentToStore(type, name) {
         var ret;
@@ -61,7 +60,6 @@
             </div>
         </div>
     </div>
-    <AddFileDropdown />
 </div>
 
 <style>
