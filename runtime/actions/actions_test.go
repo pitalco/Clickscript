@@ -22,6 +22,28 @@ func TestFunctionAction(t *testing.T) {
 		err = actions.CreateFunction(ctx, createArg)
 		assert.NoError(t, err)
 	})
+	t.Run("RunFunctionCorrect", func(t *testing.T) {
+		ctx := types.NewContext()
+		runArgs := actions.RunArgs{
+			Name:   "test",
+			Inputs: []actions.RunInput{},
+		}
+		runArg, err := json.Marshal(&runArgs)
+		assert.NoError(t, err)
+		err = actions.CreateFunction(ctx, runArg)
+		assert.NoError(t, err)
+	})
+	t.Run("RunFunctionNotCreated", func(t *testing.T) {
+		ctx := types.NewContext()
+		runArgs := actions.RunArgs{
+			Name:   "testwrong",
+			Inputs: []actions.RunInput{},
+		}
+		runArg, err := json.Marshal(&runArgs)
+		assert.NoError(t, err)
+		err = actions.CreateFunction(ctx, runArg)
+		assert.NoError(t, err)
+	})
 }
 
 func TestVarAction(t *testing.T) {}
