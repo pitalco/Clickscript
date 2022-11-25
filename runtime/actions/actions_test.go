@@ -10,8 +10,8 @@ import (
 )
 
 func TestFunctionAction(t *testing.T) {
+	ctx := types.NewContext()
 	t.Run("CreateFunction", func(t *testing.T) {
-		ctx := types.NewContext()
 		defArg := actions.DefArgs{
 			Name:    "test",
 			Inputs:  []actions.CreateInput{},
@@ -23,25 +23,23 @@ func TestFunctionAction(t *testing.T) {
 		assert.NoError(t, err)
 	})
 	t.Run("RunFunctionCorrect", func(t *testing.T) {
-		ctx := types.NewContext()
 		runArgs := actions.RunArgs{
 			Name:   "test",
 			Inputs: []actions.RunInput{},
 		}
 		runArg, err := json.Marshal(&runArgs)
 		assert.NoError(t, err)
-		err = actions.CreateFunction(ctx, runArg)
+		err = actions.RunFunction(ctx, runArg)
 		assert.NoError(t, err)
 	})
 	t.Run("RunFunctionNotCreated", func(t *testing.T) {
-		ctx := types.NewContext()
 		runArgs := actions.RunArgs{
 			Name:   "testwrong",
 			Inputs: []actions.RunInput{},
 		}
 		runArg, err := json.Marshal(&runArgs)
 		assert.NoError(t, err)
-		err = actions.CreateFunction(ctx, runArg)
+		err = actions.RunFunction(ctx, runArg)
 		assert.NoError(t, err)
 	})
 }
@@ -49,3 +47,9 @@ func TestFunctionAction(t *testing.T) {
 func TestVarAction(t *testing.T) {}
 
 func TestPrintAction(t *testing.T) {}
+
+func TestIfAction(t *testing.T) {}
+
+func TestLoopAction(t *testing.T) {}
+
+func TestMathAction(t *testing.T) {}

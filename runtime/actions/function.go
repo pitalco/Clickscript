@@ -36,8 +36,13 @@ func RunFunction(ctx types.Context, args []byte) error {
 	if err != nil {
 		log.Fatal(err)
 	}
+	// get the function from memory
+	actionsRaw := ctx.Memory[runArgs.Name]
+	if actionsRaw == nil {
+		log.Fatalf("Undefined: function %s is not declared", runArgs.Name)
+	}
 	// convert to list of action type
-	actions := ctx.Memory[runArgs.Name].([]types.Action)
+	actions := actionsRaw.([]types.Action)
 	// add each input as a memory value
 	for _, in := range runArgs.Inputs {
 		ctx.Memory[in.Name] = in.Value
