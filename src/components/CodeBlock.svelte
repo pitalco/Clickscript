@@ -1,22 +1,23 @@
 <script>
-    import { title, content } from '../stores/popup';
+    import { title, action as act } from '../stores/local';
 
     export let action;
 
-	function displayPopup(event) {
+	function displayPopup() {
 		document.getElementById("popup").style.display = "block";
 
-		title.set(event.target.getAttribute("desc"));
+        act.set(action)
+		title.set(action.notes);
 	}
 </script>
 
-<div on:click={e => displayPopup(e)} class="action" action-name={action.actionName} desc={action.desc}>
-    <div class="content padding"><p class="action-header">Action {action.actionNumber}</p></div>
-    <div class="box mainBox" action-name={action.actionName} desc={action.desc}>
-        <div class="columns" action-name={action.actionName} desc={action.desc}>
-            <div class="column is-12" action-name={action.actionName} desc={action.desc}>
-                <p class="content actionExplainer" action-name={action.actionName} desc={action.desc}>
-                    {action.desc}
+<div on:click={e => displayPopup(e)} class="action" action-name={action.action.action} desc={action.notes}>
+    <div class="content padding"><p class="action-header">Action {action.line+1}</p></div>
+    <div class="box mainBox" action-name={action.action.action} desc={action.notes}>
+        <div class="columns" action-name={action.action.action} desc={action.notes}>
+            <div class="column is-12" action-name={action.action.action} desc={action.notes}>
+                <p class="content actionExplainer" action-name={action.action.action} desc={action.notes}>
+                    {action.notes}
                 </p>
             </div>
         </div>
@@ -33,11 +34,11 @@
 }
 .content {
     margin-bottom: 0px;
+    width: max-content;
 }
 .mainBox {
     margin-top: 10px;
-    width: 100%;
-    min-width: 150px;
+    width: 200px;
     min-height: 80px;
     cursor: pointer;
     border-radius: 5px;

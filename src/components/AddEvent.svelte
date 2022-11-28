@@ -1,9 +1,22 @@
 <script>
+    function toggleAddActionDiv(e) {
+        let el = document.getElementById("add-action-div");
+        if (el.classList.contains("is-hidden")) {
+            el.classList.remove("is-hidden")
+            el.classList.add("is-block")
+        } else {
+            el.classList.remove("is-block")
+            el.classList.add("is-hidden")
+        }
+        let pos = e.target.getBoundingClientRect()
+        el.style.left = String(pos.left-23)+"px"
+        el.style.top = String(pos.top+27)+"px"
+    }
 </script>
 
-<div class="action">
+<div on:click={toggleAddActionDiv} id="action" class="action">
     <div class="box mainBox">
-        <div class="columns is-centered is-vcentered">
+        <div class="columns">
             <div class="column is-12">
                 Add an action...
             </div>
@@ -16,8 +29,7 @@
     width: 100%;
 }
 .mainBox {
-    width: 100%;
-    min-width: 150px;
+    width: 200px;
     min-height: 80px;
     height: 100%;
     cursor: pointer;

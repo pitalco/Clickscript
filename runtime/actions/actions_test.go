@@ -40,7 +40,7 @@ func TestFunctionAction(t *testing.T) {
 		runArg, err := json.Marshal(&runArgs)
 		assert.NoError(t, err)
 		err = actions.RunFunction(ctx, runArg)
-		assert.NoError(t, err)
+		assert.Error(t, err)
 	})
 }
 

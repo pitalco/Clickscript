@@ -8,9 +8,9 @@ import (
 )
 
 type VarArgs struct {
-	Name      string
-	Value     interface{}
-	ValueType string
+	Name      string      `json:"name"`
+	Value     interface{} `json:"value"`
+	ValueType string      `json:"type"`
 }
 
 func Var(ctx types.Context, args []byte) error {

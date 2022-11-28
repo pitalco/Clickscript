@@ -2,7 +2,7 @@ package actions
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 
 	"github.com/pitalco/clickscript/runtime/types"
 )
@@ -34,12 +34,12 @@ func RunFunction(ctx types.Context, args []byte) error {
 	// unmarshal the args for this action from bytes
 	err := json.Unmarshal(args, &runArgs)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	// get the function from memory
 	actionsRaw := ctx.Memory[runArgs.Name]
 	if actionsRaw == nil {
-		log.Fatalf("Undefined: function %s is not declared", runArgs.Name)
+		return fmt.Errorf("%s: function %s is not defined", types.ErrUndefined, runArgs.Name)
 	}
 	// convert to list of action type
 	actions := actionsRaw.([]types.Action)
@@ -53,7 +53,7 @@ func RunFunction(ctx types.Context, args []byte) error {
 		run := GetFunction(ctx, a.Action)
 		err = run(ctx, a.Args)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 	return nil
@@ -65,7 +65,7 @@ func CreateFunction(ctx types.Context, args []byte) error {
 	// unmarshal the args for this action from bytes
 	err := json.Unmarshal(args, &defArgs)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	// set the function in memory
 	ctx.Memory[defArgs.Name] = defArgs.Actions

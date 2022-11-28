@@ -1,5 +1,5 @@
 <script>
-    import { contents } from '../stores/project';
+    import { contents } from '../stores/script';
 
     function addContentToStore(type, name) {
         var ret;

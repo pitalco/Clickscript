@@ -19,9 +19,18 @@
   },
   "type": "module",
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.1.1",
+    "@endo/base64": "^0.2.28",
+    "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
+    "buffer": "^6.0.3",
     "cookie": "^0.4.1",
-    "interactjs": "^1.10.11"
+    "events": "^3.3.0",
+    "interactjs": "^1.10.11",
+    "nodejs-base64": "^2.0.0",
+    "process": "^0.11.10",
+    "svelte-codemirror-editor": "^1.1.0",
+    "util": "^0.12.5"
   }
 }
