@@ -16,7 +16,7 @@ If we are going to live in an ever growing digital & automated world, everyone i
 - Alpha: UI for building Clickscript files & take Clickscript and transpile to Javascript (run JS files).
 - Beta: Clickscript Runtime + Compile from Clickscript to Binary.
 - Post v1: Add Python transpile support.
-- Commercial Version: Import legacy .py and .js files into Clickscript. Cloud/real-time work environemnt/IDE for no-coders and engineers to work collaboratively.
+- Commercial Version: Import legacy .py and .js files into Clickscript. Cloud/real-time work environement/IDE for no-coders and engineers to work collaboratively.
 - Beyond: 
     * Add support for more languages
     * Built in package manager + extensions
