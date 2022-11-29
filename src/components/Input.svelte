@@ -1,10 +1,18 @@
 <script>
     import { script } from "../stores/script";
+    import CodeMirror from "svelte-codemirror-editor";
+    import { javascript } from "@codemirror/lang-javascript";
+    import { afterUpdate } from "svelte";
 
     export let title
-    export let type
     export let line
-    export let action
+    let value = ""
+
+    afterUpdate(() => {
+        if (value == "[") {value = "[]"}
+        if (value == "{") {value = "{}"}
+        if (value == null) {value = ""}
+    })
 
     function updateAction(line) {
         const els = document.querySelectorAll('[line="' + line + '"]')
@@ -17,31 +25,24 @@
             script.updateAction(line, json)
         }
     }
-
-    console.log($script)
 </script>
 
 <div class="column is-12">
     <p class="input-text">{title}</p>
-    {#if type == "list"}
-        <input value={action.action.args[title.toLowerCase()]} line={line} arg={title.toLowerCase()} on:change={updateAction(line)} type="text" class="input">
-        <div class="is-flex">
-            <button class="button">+</button>
-            <button class="button">-</button>
-        </div>
+    {#if isNaN(value) || value == ""}
+        {#if value[0] == "[" || value[0] == "{"}
+            <div style="cursor: text;">
+                <CodeMirror bind:value lang={javascript()} />
+            </div>
+        {:else}
+            <input bind:value={value} line={line} arg={title.toLowerCase()} on:change={updateAction(line)} type="text" class="input" autofocus="autofocus">
+        {/if}
     {:else}
-        <input value={action.action.args[title.toLowerCase()]} line={line} arg={title.toLowerCase()} on:change={updateAction(line)} type="text" class="input">
+        <input bind:value={value} line={line} arg={title.toLowerCase()} on:change={updateAction(line)} type="number" class="input" autofocus="autofocus">
     {/if}
 </div>
 
 <style>
-    .button {
-        font-weight: 700;
-    }
-    .is-flex {
-        justify-content: space-between;
-        margin-top: 10px;
-    }
     .input-text {
         color: rgba(0, 0, 0, 0.40);
         font-weight: 600;

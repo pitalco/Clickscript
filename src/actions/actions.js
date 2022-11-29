@@ -72,11 +72,31 @@ export const options = [
         ]
     },
     {
-        "group": "http",
+        "group": "api",
         "actions": [
             actions["get"],
             actions["post"],
             actions["put"]
         ]
+    },
+    {
+        "group": "data",
+        "actions": []
+    },
+    {
+        "group": "text",
+        "actions": []
+    },
+    {
+        "group": "math",
+        "actions": []
+    },
+    {
+        "group": "file",
+        "actions": []
+    },
+    {
+        "group": "custom",
+        "actions": []
     }
 ]
